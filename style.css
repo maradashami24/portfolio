@@ -336,6 +336,13 @@ span{
     width: 50px;
 }
 
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+
 .skills-box {
     background-color: var(--main-color);
     height: 300px;  /* Default height */
@@ -346,7 +353,8 @@ span{
     position: relative;
     overflow: hidden; /* Prevent overflow when not expanded */
     margin:20px;
-   
+    padding: 10px;
+    height : auto;
 }
 
 .skills-box:hover {
