@@ -124,7 +124,7 @@ span{
 .home-img img{
     position: relative;
     top: 3rem;
-    width: 30vw;
+    width: 32vw;
     border-radius: 50%;
     box-shadow: 0 0 25px var(--main-color);
     cursor: pointer;
@@ -336,61 +336,56 @@ span{
     width: 50px;
 }
 
-.skills{
-    background: var(--bg-color);
-    color: black;
-}
-.skills h2{
-    margin-bottom: 5rem;
-    color: white;
-}
-
-.skills-container{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    align-items: center;
-    gap: 2.5rem;
-}
-
-.skills-box{
+.skills-box {
     background-color: var(--main-color);
-    height: 300px;
+    height: 300px;  /* Default height */
     border-radius: 3rem;
     border: 5px solid transparent;
     cursor: pointer;
     transition: 0.4s ease-in-out;
+    position: relative;
+    overflow: hidden; /* Prevent overflow when not expanded */
+    margin:20px;
+   
 }
 
-.skills-box:hover{
+.skills-box:hover {
     background: white;
     color: black;
     border: 5px solid var(--main-color);
     transform: scale(1.03);
 }
 
-.skills-box .skills-info{
-    display :flex;
+.skills-box .skills-info {
+    display: flex;
     flex-direction: column;
     text-align: left;
-    max-height: 200px;
     justify-content: left;
     align-items: baseline;
-    padding: 5rem 5rem;
+    padding: 5rem;
+    height: auto;  /* Start with no height */
+    overflow: hidden; /* Hide overflow */
+    transition: height 0.5s ease-in-out; /* Smooth transition for height */
 }
 
-.skills-info h4{
+.skills-box.active .skills-info {
+    height: auto;  /* Let it expand according to content */
+}
+
+.skills-info h4 {
     font-size: 3rem;
     font-weight: 800;
     line-height: 2;
 }
 
-.skills-info p{
+.skills-info p {
     font-size: 1.6rem;
     font-weight: 600;
-    max-height: 100px;
     line-height: 1.7;
     margin: auto;
 }
+
+
 
 .experience {
     background: var(--second-bg-color);
@@ -577,98 +572,121 @@ span{
     margin-bottom: 10px;
 }
 
+/* EXISTING CSS REMAINS UNCHANGED UNTIL MEDIA QUERIES */
+
 @media(max-width:1285px){
-    html{
-        font-size: 55%;
+    html {
+      font-size: 55%;
     }
-    .skills-container{
-        padding-bottom: 7rem;
-        grid-template-columns: repeat(2, 1fr);
-        margin: 0 5rem;
+    .skills-container {
+      padding-bottom: 7rem;
+      grid-template-columns: repeat(2, 1fr);
+      margin: 0 5rem;
     }
-}
-
-@media(max-width:991px){
-    header{
-        padding: 2rem 3%;
+  }
+  
+  @media(max-width:991px){
+    header {
+      padding: 2rem 3%;
     }
-    section{
-        padding: 10rem 3% 2rem;
+    section {
+      padding: 10rem 3% 2rem;
     }
-    .timeline-items::before{
-        left: 7px;
+    .timeline-items::before {
+      left: 7px;
     }
-    .timeline-item:nth-child(even), .timeline-item:nth-child(odd){
-        padding-left: 37px;
+    .timeline-item:nth-child(even), .timeline-item:nth-child(odd) {
+      padding-left: 37px;
     }
-
-    .timeline-dot{
-        left: 0;
+    .timeline-dot {
+      left: 0;
     }
-    .skills{
-        padding-bottom: 7rem;
+    .skills {
+      padding-bottom: 7rem;
     }
-    .experience .wrapper{
-        grid-template-columns: repeat(1, 1fr);
+    .experience .wrapper {
+      grid-template-columns: repeat(1, 1fr);
     }
-    .projects .projects-content{
-        grid-template-columns: repeat(1, 1fr);
+    .projects .projects-content {
+      grid-template-columns: repeat(1, 1fr);
     }
-    .contact form{
-        flex-direction: column;
+    .contact form {
+      flex-direction: column;
     }
-    .footer{
-        padding: 2rem 3%;
+    .footer {
+      padding: 2rem 3%;
     }
-}
-
-@media(max-width:895px){
-    #menu-icon{
-        display: block;
+  }
+  
+  @media(max-width:895px){
+    #menu-icon {
+      display: block;
     }
-    .navbar{
-        position: absolute;
-        top: 100%;
-        right: 0;
-        width: 50%;
-        padding: 1rem 3%;
-        background: rgba(0,0,0,0.8);
-        backdrop-filter: blur(20px);
-        border-bottom-left-radius: 2rem;
-        border-left: 2px solid var(--main-color);
-        border-bottom: 2px solid var(--main-color);
-        display: none;
+    .navbar {
+      position: absolute;
+      top: 100%;
+      right: 0;
+      width: 50%;
+      padding: 1rem 3%;
+      background: rgba(0,0,0,0.8);
+      backdrop-filter: blur(20px);
+      border-bottom-left-radius: 2rem;
+      border-left: 2px solid var(--main-color);
+      border-bottom: 2px solid var(--main-color);
+      display: none;
     }
-    
-    .navbar a{
-        font-size: 2rem;
-        margin: 3rem 0;
-        color: white;
+    .navbar a {
+      font-size: 2rem;
+      margin: 3rem 0;
+      color: white;
     }
-
-    .home{
-        flex-direction: column-reverse;
-        margin: 5rem 4rem;
+    .home {
+      flex-direction: column-reverse;
+      margin: 5rem 4rem;
     }
-    .home-content h3{
-        font-size: 2.6rem;
+    .home-content h3 {
+      font-size: 2.6rem;
     }
-    .home-content h1{
-        font-size: 5rem;
+    .home-content h1 {
+      font-size: 5rem;
     }
-    .home-content p{
-        width: 56vw;
+    .home-content p {
+      width: 56vw;
     }
-    .skills h2{
-        margin-bottom: 3rem;
+    .skills h2 {
+      margin-bottom: 3rem;
     }
-    .skills-container{
-        grid-template-columns: repeat(1, 1fr);
+    .skills-container {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin: 0 2rem;
     }
-    .projects h2{
-        margin-bottom: 3rem;
+    .skills-box {
+      height: auto;
+      width: 100%;
     }
-    .projects-container{
-        grid-template-columns: repeat(1, 1fr);
+    .skills-box .skills-info {
+      padding: 3rem;
     }
-}
+    .projects h2 {
+      margin-bottom: 3rem;
+    }
+    .projects-container {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .timeline-items::before {
+      left: 8px;
+    }
+    .timeline-item {
+      padding-left: 40px !important;
+      padding-right: 0 !important;
+      text-align: left !important;
+    }
+    .timeline-dot {
+      left: 0;
+    }
+  }
+  
