@@ -35,32 +35,5 @@ navLinks.forEach(link => {
     });
 });
 
-const skillsBoxes = document.querySelectorAll('.skills-box');
 
-skillsBoxes.forEach(box => {
-    const info = box.querySelector('.skills-info');
-
-    box.addEventListener('click', () => {
-        const isActive = box.classList.contains('active');
-
-        // Close all first if needed (one open at a time)
-        skillsBoxes.forEach(b => {
-            b.classList.remove('active');
-            const bInfo = b.querySelector('.skills-info');
-            bInfo.style.height = '0px';
-        });
-
-        if (!isActive) {
-            box.classList.add('active');
-            // Set to actual height for transition
-            info.style.height = info.scrollHeight + 'px';
-
-            // Reset to auto after transition for dynamic content
-            info.addEventListener('transitionend', function handler() {
-                info.style.height = 'auto';
-                info.removeEventListener('transitionend', handler);
-            });
-        }
-    });
-});
 
