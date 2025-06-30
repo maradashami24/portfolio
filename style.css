@@ -118,7 +118,7 @@ span{
 }
 
 .home-img{
-    border-radius: 40%;
+    border-radius: 50%;
 }
 
 .home-img img{
@@ -126,7 +126,7 @@ span{
     top: 3rem;
     width: 30vw;
     height:30vh;
-    border-radius: 40%;
+    border-radius: 50%;
     box-shadow: 0 0 25px var(--main-color);
     cursor: pointer;
     transition: 0.4s ease-in-out;
