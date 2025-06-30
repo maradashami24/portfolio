@@ -118,14 +118,14 @@ span{
 }
 
 .home-img{
-    border-radius: 50%;
+    border-radius: 40%;
 }
 
 .home-img img{
     position: relative;
     top: 3rem;
-    width: 32vw;
-    border-radius: 50%;
+    width: 70vw;
+    border-radius: 40%;
     box-shadow: 0 0 25px var(--main-color);
     cursor: pointer;
     transition: 0.4s ease-in-out;
