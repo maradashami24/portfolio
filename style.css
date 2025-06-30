@@ -124,7 +124,8 @@ span{
 .home-img img{
     position: relative;
     top: 3rem;
-    width: 70vw;
+    width: 30vw;
+    height:30vh;
     border-radius: 40%;
     box-shadow: 0 0 25px var(--main-color);
     cursor: pointer;
